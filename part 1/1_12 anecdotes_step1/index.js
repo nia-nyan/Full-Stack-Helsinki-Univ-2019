@@ -1,24 +1,25 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
-const Randomgen = (props) => {
-
-  const c = Math.floor((Math.random() * (props.anecdotes.length + 1)) + 1)
-  return (
-    props.anecdotes[setSelected(c - 1)]
-  )
-}
-
 const App = (props) => {
   const [selected, setSelected] = useState(0)
+  const [vote, setVote] = useState(0)
+
+  const handleButton = () => {
+      setSelected(Math.floor(Math.random()*(5 - 0 + 1)) + 0)
+      const newVote = {...vote, vote + 1}
+      setVote(newVote)
+  }
 
   return (
     <div>
-      {props.anecdotes[selected]}
-      <button onClick={Randomgen()}>next anecdote</button>
+      <p>{props.anecdotes[selected]}</p>
+      <button onClick={handleButton}>next anecdote</button>
     </div>
   )
 }
+
+
 
 const anecdotes = [
   'If it hurts, do it more often',
