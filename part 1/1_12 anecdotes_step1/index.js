@@ -23,9 +23,7 @@ const App = (props) => {
   return (
     <div>
       <p>{props.anecdotes[selected]}</p>
-      <button onClick={()=>copy[selected] += 1}>vote</button>
-      {/* <button onClick={handleButton}>next anecdote</button> */}
-
+      <button onClick={handleButton}>next anecdote</button>
     </div>
   )
 }
