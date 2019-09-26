@@ -1,19 +1,9 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
-// const Vote = (props) => {
-
-
-
-//   return (
-//     copy[selected] += 1
-//   )
-// }
-
 const App = (props) => {
   const [selected, setSelected] = useState(0)
-  const points = { 0: 1, 1: 3, 2: 4, 3: 2 }
-
+  const points = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 }
   const copy = { ...points }
 
   const handleButton = () => {

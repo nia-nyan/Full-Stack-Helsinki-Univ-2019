@@ -1,16 +1,6 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
-// const Vote = (props) => {
-
-
-
-//   return (
-//     copy[selected] += 1
-//   )
-// }
-
-
 const App = (props) => {
   const [selected, setSelected] = useState(0)
   const [max, setMax] = useState(0)
