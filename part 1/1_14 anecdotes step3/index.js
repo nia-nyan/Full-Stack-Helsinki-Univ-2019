@@ -10,14 +10,37 @@ import ReactDOM from 'react-dom'
 //   )
 // }
 
+
 const App = (props) => {
   const [selected, setSelected] = useState(0)
-  const points = { 0: 1, 1: 3, 2: 4, 3: 2 }
-
+  const [max, setMax] = useState(0)
+  const [maxpos, setMaxpos] = useState(0)
+  const points = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 }
   const copy = { ...points }
 
   const handleButton = () => {
     setSelected(Math.floor(Math.random() * (5 - 0 + 1)) + 0)
+  }
+
+  const mostVotes = () => {
+
+    copy[selected] += 1
+
+    // console.log(copy[selected])
+
+    for (let i = 0; i < 6; i++) {
+
+      if (copy[i] > max) {
+
+        setMax(copy[i])
+        setMaxpos(i)
+
+      }
+
+    }
+
+    // console.log(max, maxpos)
+
   }
 
 
@@ -25,10 +48,12 @@ const App = (props) => {
     <div>
       <h1>Anecdote of the day</h1>
       <p>{props.anecdotes[selected]}</p>
-      <button onClick={() => copy[selected] += 1}>vote</button>
+      <button onClick={mostVotes}>vote</button>
       <button onClick={handleButton}>next anecdote</button>
+      <h1>Anecdote with most votes</h1>
+      <p>"{props.anecdotes[maxpos]}" has {max} votes</p>
     </div>
-   
+
   )
 
 }
