@@ -23,47 +23,50 @@ const App = () => {
         ]
     }
 
-    const Course = () => {
 
-        const Header = () => {
-            return (
-                <div>
-                    <h1>{course.name}</h1>
-                </div>
-            )
-        }
-    
-        const Content = ({content}) => {
-            return (
-                <p>{content.name} {content.exercises}</p>
-            )
-        }
-    
-        const Part = () => 
-        course.parts.map(partmap =>
-            <Content 
-            key={partmap.id} 
-            content={partmap}
-            />
-            )
-    
-
+    {/*const Header = () => {
         return (
             <div>
-                <Header />
-                {Part()}
+                <h1>{course.name}</h1>
             </div>
+        )
+
+    }
+
+   const Content = ({ partmap }) => {
+
+        return (
+                <li>{partmap.name}</li>
         )
     }
 
+
+    const Part = ({ course }) => {
+        course.parts.map(partmap =>
+            <Content
+                key={partmap.id}
+                name={partmap}
+            />
+        )
+    }}*/}
+
+
+
+return (
+    <div>
+            {course.parts.map(partmap => <p>{partmap.name} {partmap.exercises}</p>)}
+    </div>
     
+)
+
+
+{/*
     return (
         <div>
-            <Course />
+            <Header />
+            <Part />
         </div>
-    )
-   
+    )*/}
 }
 
 ReactDOM.render(<App />, document.getElementById('root'))
-
